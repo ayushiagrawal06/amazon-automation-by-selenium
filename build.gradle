@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'com.ayushi.tutorials'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.10'
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testCompile "junit:junit:4.13"
+    testCompile "org.testng:testng:7.1.0"
+    testCompile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
+}
+test {
+    useJUnitPlatform()
+}

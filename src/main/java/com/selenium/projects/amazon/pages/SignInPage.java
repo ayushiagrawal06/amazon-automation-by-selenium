@@ -1,0 +1,29 @@
+package com.selenium.projects.amazon.pages;
+
+import com.selenium.projects.amazon.exceptions.TestException;
+import com.selenium.projects.amazon.utils.CommonUtils;
+import org.openqa.selenium.By;
+
+public class SignInPage extends CommonUtils {
+
+    private final By USERNAME = By.cssSelector("#ap_email");
+    private final By PASSWORD = By.cssSelector("#ap_password");
+    private final By SIGNIN_BUTTON = By.cssSelector("#signInSubmit");
+
+    public void enterUsername(String userName) throws TestException {
+        System.out.println("SIGNIN_PAGE: Entering username: " + userName);
+        waitForElementToBeVisible(USERNAME);
+        sendKeys(USERNAME, userName);
+    }
+
+    public void enterPassword(String password) throws TestException {
+        System.out.println("SIGNIN_PAGE: Entering password.");
+        waitForElementToBeVisible(PASSWORD);
+        sendKeys(PASSWORD, password);
+    }
+
+    public void clickSignInButton() throws TestException {
+        System.out.println("SIGNIN_PAGE: Clicking the [SIGN_IN] button.\n");
+        click(SIGNIN_BUTTON);
+    }
+}
